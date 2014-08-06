@@ -1,8 +1,4 @@
-from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.core.mail import EmailMultiAlternatives
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from cards.forms import EmailUserCreationForm
 from cards.models import Card, WarGame
@@ -79,9 +75,10 @@ def register(request):
     if request.method == 'POST':
         form = EmailUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            form.save()
             # text_content = 'Thank you for signing up for our website, {}'.format(user.username)
-            # html_content = '<h2>Thanks {} for signing up!</h2> <div>I hope you enjoy using our site</div>'.format(user.username)
+            # html_content = '<h2>Thanks {} for signing up!</h2> <div>I hope you enjoy using our site</div>'
+            # .format(user.username)
             # msg = EmailMultiAlternatives("Welcome!", text_content, settings.DEFAULT_FROM_EMAIL, [user.email])
             # msg.attach_alternative(html_content, "text/html")
             # msg.send()
