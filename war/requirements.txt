@@ -2,5 +2,8 @@
 Django==1.6.5
 Pillow==2.5.1
 South==1.0
+coverage==3.7.1
+pep8==1.5.7
 psycopg2==2.5.3
+pyflakes==0.8.1
 wsgiref==0.1.2
